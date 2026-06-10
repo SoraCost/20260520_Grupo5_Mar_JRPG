@@ -9,23 +9,23 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 5ae9da95fa3aad14384b8b70c08fbe36, type: 2}
+    m_Motion: {fileID: 7400000, guid: 790121b66b04dd24ab0a83271a7aacb8, type: 2}
     m_Threshold: 0
-    m_Position: {x: 0, y: 0}
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: HorizontalVelocity
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 5ae9da95fa3aad14384b8b70c08fbe36, type: 2}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: HorizontalVelocity
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 434900193517bcc4a89dc5560ea3c574, type: 2}
-    m_Threshold: 0.33333334
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: HorizontalVelocity
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 65be0cd5dc42aa1498d26f9321c83e78, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -33,9 +33,9 @@ BlendTree:
     m_DirectBlendParameter: HorizontalVelocity
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 0}
+    m_Motion: {fileID: 7400000, guid: 65be0cd5dc42aa1498d26f9321c83e78, type: 2}
     m_Threshold: 1
-    m_Position: {x: -0.96, y: 0.26}
+    m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: HorizontalVelocity
@@ -231,7 +231,7 @@ AnimatorStateMachine:
     m_Position: {x: 410, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -697962496586203010}
-    m_Position: {x: 438, y: -71, z: 0}
+    m_Position: {x: 240, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1439973941292488463}
     m_Position: {x: 473, y: -6, z: 0}
@@ -244,4 +244,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -5744043915301004493}
+  m_DefaultState: {fileID: -697962496586203010}
