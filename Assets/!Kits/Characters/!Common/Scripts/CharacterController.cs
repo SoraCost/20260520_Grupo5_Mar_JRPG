@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, IVisible
 {
+    [SerializeField] IVisible.Side side = IVisible.Side.Neutral;
     [SerializeField] float movementSpeed = 3.0f;
 
     Rigidbody2D rb2D;
@@ -25,5 +26,15 @@ public class CharacterController : MonoBehaviour
         this.rawMove = rawMove;
         animator.SetFloat("HorizontalVelocity", rawMove.x);
         animator.SetFloat("VerticalVelocity", rawMove.y);
+    }
+
+    IVisible.Side IVisible.GetSide()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    Transform IVisible.GetTransform()
+    {
+        return transform;
     }
 }
