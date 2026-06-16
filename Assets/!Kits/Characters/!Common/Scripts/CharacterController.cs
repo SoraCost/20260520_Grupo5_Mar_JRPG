@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour, IVisible
+public class CharacterController : MonoBehaviour
 {
     [SerializeField] IVisible.Side side = IVisible.Side.Neutral;
     [SerializeField] float movementSpeed = 3.0f;
@@ -28,13 +28,7 @@ public class CharacterController : MonoBehaviour, IVisible
         animator.SetFloat("VerticalVelocity", rawMove.y);
     }
 
-    IVisible.Side IVisible.GetSide()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
-    Transform IVisible.GetTransform()
-    {
-        return transform;
-    }
+    
 }
