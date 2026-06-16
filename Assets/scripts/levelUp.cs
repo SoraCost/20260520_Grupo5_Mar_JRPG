@@ -8,7 +8,7 @@ public class levelUp : MonoBehaviour
     public int currentExperience = 0;
     public int experienceNeeded = 100;
 
-    public int maxHealth = 100;
+   
     public int attack = 10;
 
     public void GainExperience(int amount)
@@ -29,7 +29,7 @@ public class levelUp : MonoBehaviour
 
         experienceNeeded = Mathf.RoundToInt(experienceNeeded * 1.5f);
 
-        maxHealth += 20;
+       
         attack += 5;
 
         Debug.Log("You reached level " + level + "!");

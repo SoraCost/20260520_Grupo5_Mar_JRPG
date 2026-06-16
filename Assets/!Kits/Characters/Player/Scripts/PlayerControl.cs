@@ -5,6 +5,7 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference attack;
+    [SerializeField] ParticleSystem particleSystem;
 
     CharacterController characterController;
 
@@ -33,5 +34,24 @@ public class PlayerControl : MonoBehaviour
     {
         rawMove = obj.action.ReadValue<Vector2>();
         characterController.SetRawMove(rawMove);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+       if(collision.gameObject.CompareTag("Enemy"))
+        {
+            particleSystem.Play();
+        } 
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+       if(collision.gameObject.CompareTag("Enemy"))
+       {
+           particleSystem.Stop(); 
+        } 
+    }
+    void Start()
+    {
+    particleSystem.Stop();
     }
 }
