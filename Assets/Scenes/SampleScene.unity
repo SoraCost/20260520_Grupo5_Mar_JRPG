@@ -404,6 +404,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &582833707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582833709}
+  - component: {fileID: 582833708}
+  m_Layer: 0
+  m_Name: TestSight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &582833708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582833707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f1cdaa2183fdb4fbe9e5cc1f3222f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sight
+  radius: 3
+  attendedSides: 010000000000000002000000
+--- !u!4 &582833709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582833707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +557,11 @@ PrefabInstance:
       propertyPath: life
       value: 
       objectReference: {fileID: 1862246337}
+    - target: {fileID: 3030931362681386904, guid: d71e9789d9742294c8e8068bdf57b032,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.012000024
+      objectReference: {fileID: 0}
     - target: {fileID: 5599148771410243197, guid: d71e9789d9742294c8e8068bdf57b032,
         type: 3}
       propertyPath: m_Pivot.x
@@ -609,7 +660,7 @@ PrefabInstance:
     - target: {fileID: 5599148771410243197, guid: d71e9789d9742294c8e8068bdf57b032,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.692
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 5599148771410243197, guid: d71e9789d9742294c8e8068bdf57b032,
         type: 3}
@@ -630,6 +681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559615504160784761, guid: d71e9789d9742294c8e8068bdf57b032,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -715,6 +771,7 @@ GameObject:
   - component: {fileID: 1326018507}
   - component: {fileID: 1326018506}
   - component: {fileID: 1326018505}
+  - component: {fileID: 1326018512}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -734,7 +791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f1cdaa2183fdb4fbe9e5cc1f3222f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sight
-  attendedSides: 
+  radius: 3
+  attendedSides: 00000000
 --- !u!114 &1326018506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,8 +841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0bd59449c965546be8da5c5ceb795a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
-  side: 0
-  movementSpeed: 3
+  side: 2
+  movementSpeed: 2
 --- !u!50 &1326018509
 Rigidbody2D:
   serializedVersion: 5
@@ -866,6 +924,18 @@ Transform:
   - {fileID: 1493005868}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1326018512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326018504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7d909b6d9456d43a993cf1a86cfa82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1001 &1493005867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -889,6 +959,11 @@ PrefabInstance:
       propertyPath: life
       value: 
       objectReference: {fileID: 1326018506}
+    - target: {fileID: 3030931362681386904, guid: d71e9789d9742294c8e8068bdf57b032,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.022
+      objectReference: {fileID: 0}
     - target: {fileID: 5599148771410243197, guid: d71e9789d9742294c8e8068bdf57b032,
         type: 3}
       propertyPath: m_Pivot.x
@@ -987,7 +1062,7 @@ PrefabInstance:
     - target: {fileID: 5599148771410243197, guid: d71e9789d9742294c8e8068bdf57b032,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.692
+      value: 1.29
       objectReference: {fileID: 0}
     - target: {fileID: 5599148771410243197, guid: d71e9789d9742294c8e8068bdf57b032,
         type: 3}
@@ -1008,6 +1083,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559615504160784761, guid: d71e9789d9742294c8e8068bdf57b032,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.021999925
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10465,3 +10545,4 @@ SceneRoots:
   - {fileID: 1862246334}
   - {fileID: 1326018511}
   - {fileID: 63466785}
+  - {fileID: 582833709}

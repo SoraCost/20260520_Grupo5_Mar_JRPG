@@ -30,7 +30,7 @@ public class CharacterController : MonoBehaviour, IVisible
 
     IVisible.Side IVisible.GetSide()
     {
-        throw new System.NotImplementedException();
+        return side;
     }
 
     Transform IVisible.GetTransform()
