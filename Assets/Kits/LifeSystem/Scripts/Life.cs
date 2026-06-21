@@ -10,6 +10,7 @@ public class Life : MonoBehaviour
     public UnityEvent<float> onLifeDepleted;
 
     HurtCollider hurtCollider;
+    PlayerCollect playerCollect;
 
     float currentLife;
 
@@ -26,20 +27,21 @@ public class Life : MonoBehaviour
     private void Awake()
     {
         hurtCollider = GetComponent<HurtCollider>();
-
         currentLife = startLife;
+        playerCollect = GetComponent<PlayerCollect>();
     }
 
     private void OnEnable()
     {
         hurtCollider.onHitReceived.AddListener(OnHitReceived);
-
         Restart();
+        playerCollect?.OnCollectedObjectDirectUsage.AddListener(OnCollectedObject);
     }
 
     private void OnDisable()
     {
         hurtCollider.onHitReceived.RemoveListener(OnHitReceived);
+        playerCollect?.OnCollectedObjectDirectUsage.RemoveListener(OnCollectedObject);
     }
 
     private void OnHitReceived()
@@ -62,4 +64,19 @@ public class Life : MonoBehaviour
         currentLife = startLife;
         onLifeChanged.Invoke(currentLife, startLife);
     }
+
+
+    private void OnCollectedObject(CollectableObject collectable)
+    {
+        if (
+            (collectable.inventoryInfo.type == InventoryInfo.InventoryObjectType.Healt) &&
+            (collectable.inventoryInfo.usage == InventoryInfo.UsageType.Direct)
+            )
+        {
+            currentLife += collectable.inventoryInfo.recovery;
+            onLifeChanged.Invoke(currentLife, startLife);
+        }
+    }
+
+
 }
