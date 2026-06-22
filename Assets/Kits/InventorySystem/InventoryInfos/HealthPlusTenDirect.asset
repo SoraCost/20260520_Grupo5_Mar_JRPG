@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ad33fef442739944a846102d108d76c, type: 3}
-  m_Name: HealthPlusFive
+  m_Script: {fileID: 11500000, guid: e91c508fb4abe6c48a2bfd473f5321ff, type: 3}
+  m_Name: HealthPlusTenDirect
   m_EditorClassIdentifier: Assembly-CSharp::InvenitryInfo
   type: 0
-  recovery: 5
+  usage: 0
+  recovery: 10

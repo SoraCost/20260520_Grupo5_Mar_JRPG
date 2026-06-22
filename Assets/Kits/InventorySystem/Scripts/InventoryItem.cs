@@ -10,6 +10,7 @@ public class InventoryItem : MonoBehaviour
     [SerializeField] Button useButton;
     [SerializeField] Button discardButton;
 
+    Inventory inventory;
     InventoryInfo inventoryInfo;
 
     private void OnEnable()
@@ -27,6 +28,13 @@ public class InventoryItem : MonoBehaviour
     private void OnUse()
     {
         Debug.Log("Using object", this);
+        inventory.NotifyObjectUsed(inventoryInfo);
+        inventoryInfo.remainingUseCount--;
+        if(inventoryInfo.remainingUseCount <= 0)
+        {
+            Destroy(gameObject);
+        }
+        //Destroy(gameObject);
     }
 
     private void OnDiscard()
@@ -34,10 +42,14 @@ public class InventoryItem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Initialize(InventoryInfo inventoryInfo)
+    public void Initialize(Inventory inventory, InventoryInfo inventoryInfo)
     {
+        inventoryInfo = Instantiate(inventoryInfo);
+
         this.inventoryInfo = inventoryInfo;
         //?????;
+        this.inventory = inventory;
+        this.image.sprite = inventoryInfo.sprite;
     }    
 
 }

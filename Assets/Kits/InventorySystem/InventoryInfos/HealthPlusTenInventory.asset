@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91c508fb4abe6c48a2bfd473f5321ff, type: 3}
+  m_Name: HealthPlusTenInventory
+  m_EditorClassIdentifier: Assembly-CSharp::InvenitryInfo
+  type: 0
+  usage: 1
+  recovery: 10
+  sprite: {fileID: 4473543294009416597, guid: bf8b678959c8a6240811cca601f8f5f9, type: 3}
+  remainingUseCount: 3

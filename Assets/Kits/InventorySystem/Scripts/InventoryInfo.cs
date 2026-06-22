@@ -19,5 +19,7 @@ public class InventoryInfo : ScriptableObject
     public InventoryObjectType type;
     public UsageType usage;
     public float recovery = 1f;
+    public Sprite sprite;
+    public int remainingUseCount = 3;
 
 }

@@ -11,6 +11,7 @@ public class Life : MonoBehaviour
 
     HurtCollider hurtCollider;
     PlayerCollect playerCollect;
+    Inventory inventory;
 
     float currentLife;
 
@@ -29,19 +30,22 @@ public class Life : MonoBehaviour
         hurtCollider = GetComponent<HurtCollider>();
         currentLife = startLife;
         playerCollect = GetComponent<PlayerCollect>();
+        inventory = GetComponent<Inventory>();
     }
 
     private void OnEnable()
     {
         hurtCollider.onHitReceived.AddListener(OnHitReceived);
-        Restart();
+        //Restart();
         playerCollect?.OnCollectedObjectDirectUsage.AddListener(OnCollectedObject);
+        inventory?.onObjectUsed.AddListener(OnObjectUsed);
     }
 
     private void OnDisable()
     {
         hurtCollider.onHitReceived.RemoveListener(OnHitReceived);
         playerCollect?.OnCollectedObjectDirectUsage.RemoveListener(OnCollectedObject);
+        inventory?.onObjectUsed.RemoveListener(OnObjectUsed);
     }
 
     private void OnHitReceived()
@@ -68,15 +72,20 @@ public class Life : MonoBehaviour
 
     private void OnCollectedObject(CollectableObject collectable)
     {
-        if (
-            (collectable.inventoryInfo.type == InventoryInfo.InventoryObjectType.Healt) &&
-            (collectable.inventoryInfo.usage == InventoryInfo.UsageType.Direct)
-            )
-        {
-            currentLife += collectable.inventoryInfo.recovery;
-            onLifeChanged.Invoke(currentLife, startLife);
-        }
+        InventoryInfo info = collectable.inventoryInfo;
+        UseInventoryInfo(info);
     }
 
+    private void OnObjectUsed(InventoryInfo info)
+    {
+        UseInventoryInfo(info);
+    }
+
+    private void UseInventoryInfo(InventoryInfo info)
+    {
+        currentLife += info.recovery;
+        Debug.Log("Revisar limite de recuperacion");
+        onLifeChanged.Invoke(currentLife, startLife);
+    }
 
 }
