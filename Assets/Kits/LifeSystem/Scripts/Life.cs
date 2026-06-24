@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using TMPro;
+
 public class Life : MonoBehaviour
 {
     [SerializeField] float startLife = 1f;
@@ -16,6 +19,9 @@ public class Life : MonoBehaviour
     float currentLife;
 
     [SerializeField] bool debugReceiveDamage;
+
+    [SerializeField] GameObject endingText;
+    [SerializeField] GameObject resetButton;
     private void OnValidate()
     {
         if (debugReceiveDamage)
@@ -31,6 +37,8 @@ public class Life : MonoBehaviour
         currentLife = startLife;
         playerCollect = GetComponent<PlayerCollect>();
         inventory = GetComponent<Inventory>();
+        endingText.SetActive(false);
+        resetButton.SetActive(false);
     }
 
     private void OnEnable()
@@ -60,6 +68,14 @@ public class Life : MonoBehaviour
                 onLifeDepleted.Invoke(startLife);
             }
 
+        } else
+        {   
+            
+            
+            endingText.SetActive(true);        
+            resetButton.SetActive(true);
+            resetButton.GetComponentInChildren<TMP_Text>().text = "Reset GAME";
+            Destroy(gameObject);
         }
     }
 
@@ -68,7 +84,6 @@ public class Life : MonoBehaviour
         currentLife = startLife;
         onLifeChanged.Invoke(currentLife, startLife);
     }
-
 
     private void OnCollectedObject(CollectableObject collectable)
     {
@@ -87,5 +102,4 @@ public class Life : MonoBehaviour
         Debug.Log("Revisar limite de recuperacion");
         onLifeChanged.Invoke(currentLife, startLife);
     }
-
 }
