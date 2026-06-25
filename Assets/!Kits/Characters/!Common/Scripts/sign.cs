@@ -88,7 +88,6 @@ void OnEnable()
         {
             action1=false;
             action2=false;
-         
         }
         }
         if(Keyboard.current.digit9Key.wasPressedThisFrame)
